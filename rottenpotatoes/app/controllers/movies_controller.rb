@@ -60,5 +60,27 @@ class MoviesController < ApplicationController
     flash[:notice] = "Movie '#{@movie.title}' deleted."
     redirect_to movies_path
   end
-
+  
+  # put method, for adding director name.
+  def put
+    @movie = Movie.find(params[:id])
+    @mocie.director = params[:director]
+  end
+  
+  # search method, for searching movies with the same director.
+  # Every method should have a view with the same name, unless the method runs 'redirect_to' to another view.
+  # So, we need to define a new view: search.html.haml
+  def search
+    # need to define a new view: search.html.haml
+    # This controller method pass two instance variables to the view: @movie and @search_result_movies.
+    # @movie: search by this movie's director.
+    # @search_result_movies: the searching result.
+    id = params[:id] # retrieve movie ID from URI route
+    @movie = Movie.find(id) # look up movie by unique ID
+    # search_by_director is a self-defined class mothod (in movies_helper.rb).
+    # Method not belonging to CRUD should be defined manually.
+    @search_result_movies = Movie.search_by_director(id)
+    # redirect_to movie_path(@movie)
+  end
+  
 end

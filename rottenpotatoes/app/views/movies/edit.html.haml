@@ -2,10 +2,19 @@
 
 %h1 Edit Existing Movie
 
-= form_tag movie_path(@movie), :method => :put do
+-# form_tag(url_for_options = {}, options = {}, &block)
+-# Here the url_for_options is movie_path(@movie).
+-# Notice it is movie_path instead of movies_path. And movie_path takes a parameter @movie.
+-# @movie is instant variable, provided by the controller.
+= form_tag( movie_path(@movie), :method => :put ) do
 
   = label :movie, :title, 'Title'
   = text_field :movie, 'title'
+  
+  = label :movie, :director, 'Director'
+  = text_field :movie, 'director'
+  -# This command means the text in this text_field is linked to 'movie' tabel's
+  -# 'director' column. Change the text here, sumit the form_tag, things will change in the 'movie' tabel.
 
   = label :movie, :rating, 'Rating'
   = select :movie, :rating, ['G','PG','PG-13','R','NC-17']
