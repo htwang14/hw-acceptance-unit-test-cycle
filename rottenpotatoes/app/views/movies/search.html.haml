@@ -1,7 +1,7 @@
 -# Every method should have a view with the same name, unless the method runs 'redirect_to' to another view.
 -# So, we need to define a new view: search.html.haml for the method search in the movies controller.
 
-%h2 Movies With Same Director as #{@movie.title}
+%h2 Movies With Same Director as #{@title}
 
 %ul
   - @search_result_movies.each do |movie_name|

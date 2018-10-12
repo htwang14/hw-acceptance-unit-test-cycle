@@ -5,9 +5,9 @@ class Movie < ActiveRecord::Base
   
   # define search_by_director as a class method (prefixed with 'self.')
   # Method not belonging to CRUD should be defined manually.
-  def self.search_by_director(id)
+  def self.search_by_director(title)
     # get the director name of this movie. Search by this name.
-    director = Movie.find_by(id: id).director
+    director = Movie.find_by(title: title).director
     if director.nil? or director.blank?
       return nil
     else

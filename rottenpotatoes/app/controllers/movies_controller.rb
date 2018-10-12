@@ -73,14 +73,17 @@ class MoviesController < ApplicationController
   def search
     # need to define a new view: search.html.haml
     # This controller method pass two instance variables to the view: @movie and @search_result_movies.
-    # @movie: search by this movie's director.
+    # @title: search by this movie's director.
     # @search_result_movies: the searching result.
-    id = params[:id] # retrieve movie ID from URI route
-    @movie = Movie.find(id) # look up movie by unique ID
+    @title = params[:title] # retrieve movie ID from URI route
     # search_by_director is a self-defined class mothod (in movies_helper.rb).
     # Method not belonging to CRUD should be defined manually.
-    @search_result_movies = Movie.search_by_director(id)
-    # redirect_to movie_path(@movie)
+    @search_result_movies = Movie.search_by_director(@title)
+    if @search_result_movies == nil # @search_result_movies<==>Movie.search_by_director(title)==nil<==>that movie has no director
+      redirect_to movies_path # If a movie has no director, go to the index page.
+    else # Else go to the search view.
+      
+    end
   end
   
 end
