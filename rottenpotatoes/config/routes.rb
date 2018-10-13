@@ -15,6 +15,6 @@ Rottenpotatoes::Application.routes.draw do
   # or search_similar_movies_path(@movie) will not work.
   # Hint from hw instructions: 
   # "You can also use the key :as to specify a name to generate helpers (i.e. search_directors_path)"
-  get 'same_director_movies/:title', to: 'movies#search', as: 'same_director_movies'
+  get 'same_director_movies/:title', to: 'movies#search', as: 'search_similar_movies'
   # Run rake routes to see the new route is added.
 end

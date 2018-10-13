@@ -23,4 +23,4 @@
 = link_to 'Back to movie list', movies_path
 -# add the following link for searching movies with the same director:
 -# %p means new line in haml.
-%p= link_to 'Find Movies With Same Director', same_director_movies_path(@movie.title)
+%p= link_to 'Find Movies With Same Director', search_similar_movies_path(@movie.title)

@@ -19,7 +19,7 @@ end
 group :test do
   gem 'cucumber-rails', :require => false
   gem 'cucumber-rails-training-wheels'
-  gem 'simplecov', '~> 0.12.0' # install simplecov
+  gem 'simplecov', :require => false # install simplecov
 end
 group :production do
   gem 'pg'

@@ -14,7 +14,8 @@ module NavigationHelpers
     case page_name
 
     when /^the home\s?page$/
-      '/'
+      # '/'
+      '/movies'
      
     # Define the edit_movie_path: 
     when /^the edit page for "(.*)"$/
